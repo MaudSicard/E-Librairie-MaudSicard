@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block subnav %}
+  <nav class="header_nav">
+    <a href="{{ path('admin_read_book') }}">Livres</a>
+    <a href="{{ path('admin_read_author') }}">Auteurs</a>
+    <a href="{{ path('admin_read_gender') }}">Genres</a>
+    <a href="{{ path('admin_read_editor') }}">Editeurs</a>
+    <a href="{{ path('admin_read_user') }}">Utilisateurs</a>
+    <a href="{{ path('admin_read_review') }}">Commentaires</a>
+  </nav>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les éditeurs{% endblock %}
+
+{% block body %}
+<main>
+    <div class="container_cards">
+  {% for editor in editors %}
+      <div class="card">
+        <img src="{{ editor.image }}" alt="">
+        <h3>{{ editor. name }}</h3>
+        <p>Adresse : {{ editor.adress }}</p>
+        <a href="{{ path('show_editor_book', {slug: editor.slug}) }}">Cliquez ici pour voir les livres</a>
+      </div>
+  {% endfor %}
+    </div>
+  </main>
+{% endblock %}

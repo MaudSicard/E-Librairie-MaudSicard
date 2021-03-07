@@ -1,0 +1,40 @@
+  
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre panier{% endblock %}
+
+
+{% block body %}
+<div class="container">
+ {{ include('_flash_messages.html.twig') }}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <tr class="table-dark">
+                <th scope="col">Nom</th>
+                <th scope="col">Prix unitaire</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Prix total</th>
+            </tr>
+        </thead>
+        <tbody>
+             
+               {% for book in booksList %}
+             <tr>
+                <td>{{book.title }}</td>
+                <td>{{book.price }}&euro;</td>
+                <td>{{quantity}}</td>
+                <td>{{book.price * quantity }}&euro;</p>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+
+    <form action="{{path('cart_remove')}}" method="post" onsubmit="return confirm('Voulez - vous vraiment vider le panier ?')">
+        <button type="submit" class="btn btn-warning">Vider le panier</button>
+    </form>
+</div>
+{% endblock %}

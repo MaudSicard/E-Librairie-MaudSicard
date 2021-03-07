@@ -1,0 +1,32 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('admin_create_book') }}"> Ajouter un livre </a>
+
+<table>
+      <tr>
+          <th>Titre du livre</th>
+          <th>Auteur</th>
+          <th>Genre</th>
+          <th>Editeur</th>
+          <th>Prix</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+      </tr>
+      {% for groupBook in books %}
+      <tr>
+        <td>{{ groupBook.book.title }}</td>
+        <td>{{ groupBook.author.firstname }} {{ groupBook.author.lastname }}</td>
+        <td>{{ groupBook.gender.name }}</td>
+        <td>{{ groupBook.editor.name }}</td>
+        <td>{{ groupBook.book.price }}</td>
+        <td><a href="{{ path('admin_update_book', {id: groupBook.book.id}) }}">Modifier</a></td>
+        <td><a href="{{ path('admin_delete_book', {id: groupBook.book.id}) }}">Supprimer</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+ 
+ {% endblock %}

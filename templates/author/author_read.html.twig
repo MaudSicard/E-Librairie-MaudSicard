@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AuthorController!{% endblock %}
+
+{% block body %}
+ <main>
+    <div class="container_cards">
+    {% for author in authors %}
+      <div class="card">
+        <img src="{{ author.image }}" alt="">
+        <h3>{{author.firstname}}  {{author.lastname}}</h3>
+        <p>{{author.content}}</p>
+        <a href="{{ path('show_author_book', {slug: author.slug}) }}">Cliquez ici pour voir les livres</a>
+       </div>
+    {% endfor %}
+  </div>
+  </main>
+{% endblock %}

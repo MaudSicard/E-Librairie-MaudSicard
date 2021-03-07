@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+
+<main>
+  <form class="form" action="" method="POST">
+    <p>Vous pouvez nous laisser un message à l'aide du formulaire suivant.</p>
+    <div class="form_input">
+      <label for="mail">Votre adresse mail</label>
+      <input type="email" id="mail">
+     </div>
+     <div class="form_input">
+      <label for="message">Votre message</label>
+      <textarea type="text" id="message"></textarea>
+     </div>
+     <button type="submit">Valider</button>
+  </form>
+  
+ {% endblock %}

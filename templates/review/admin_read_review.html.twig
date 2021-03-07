@@ -1,0 +1,26 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('admin_create_review') }}"> Ajouter un commentaire </a>
+
+<table>
+      <tr>
+          <th>Commentaire</th>
+          <th>Date de publication</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+      </tr>
+      {% for review in reviews %}
+      <tr>
+        <td>{{ review.content }}</td>
+        <td>{{review.publishedAt|date('d m Y') }}</td>
+        <td><a href="{{ path('admin_update_review', {id: review.id}) }}">Modifier</a></td>
+        <td><a href="{{ path('admin_delete_review', {id: review.id}) }}">Supprimer</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+ 
+ {% endblock %}

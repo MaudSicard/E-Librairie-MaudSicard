@@ -1,0 +1,26 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('admin_create_editor') }}"> Ajouter un éditeur </a>
+
+<table>
+      <tr>
+          <th>Editeur</th>
+          <th>Adresse</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+      </tr>
+      {% for editor in editors %}
+      <tr>
+        <td>{{ editor.name }}</td>
+        <td>{{ editor.adress }}</td>
+        <td><a href="{{ path('admin_update_editor', {id: editor.id}) }}">Modifier</a></td>
+        <td><a href="{{ path('admin_delete_editor', {id: editor.id}) }}">Supprimer</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+ 
+ {% endblock %}

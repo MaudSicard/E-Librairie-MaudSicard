@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}les commentaires{% endblock %}
+
+{% block body %}
+ <main>
+    <div class="container_cards">
+    {% if null != reviews %}
+      {% for review in reviews %}
+        <div class="card">
+        <p>{{review.user.username}} </p>
+          <p>{{review.content}} </p>
+          <p>Publié le : {{review.publishedAt|date('d/m/Y')}}</p>
+      </div>
+      {% endfor %}
+       <a href = "{{ path('admin_create_review') }}"> Ajouter un commentaire</a>
+    {% else %}
+      <p>Il n'y a pas encore de commentaire sur ce livre.</p>
+      <a href = "{{ path('admin_create_review') }}"> Ajouter un commentaire</a>
+    {% endif %}
+      </div>
+  </main>
+{% endblock %}

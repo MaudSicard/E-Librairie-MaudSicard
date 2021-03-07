@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<main>
+{{ include('_flash_messages.html.twig') }}
+  <div class="container_cards">
+
+    {% for gender in genders %}
+
+    <div class="card">
+      <img src="{{ gender.image }}" alt="">
+      <h3>{{ gender.name }}</h3>
+      <a href="{{ path('show_gender_book', {slug: gender.slug}) }}">Cliquez ici pour voir les livres</a>
+    </div>
+
+    {% endfor %}
+  </div>
+  </main>
+{% endblock %}
+

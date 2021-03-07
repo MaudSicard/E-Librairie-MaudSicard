@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+<main>
+
+<div class = "container_cards">
+
+  <h1> {{gender.name}} </h1>
+  {% if null != groupBooks %}
+    {% for groupBook in groupBooks %}
+      <div class =" card">
+        <img src="{{ groupBook.book.image }}" alt="random image">
+        <h3>{{ groupBook.book.title }}</h3>
+        <p>Résumé : {{ groupBook.book.content }}</p>
+        <p>Auteur : {{ groupBook.author.firstname }} {{ groupBook.author.lastname }}</p>
+        <p>Editeur : {{ groupBook.editor.name }}</p>
+        <p>Prix : {{ groupBook.book.price }}  &#8364;</p>
+        
+        <a href="{{ path('show_review', {id: groupBook.book.id}) }}">Cliquez ici pour lire les commentaires</a>
+         <a href="{{ path('cart_add', {id: groupBook.book.id}) }}">Ajoutez au panier</a>
+        <a href="{{ path('cart') }}">Voir mon panier</a>
+      </div>
+    {% endfor %}
+  {% else %}
+      <p>Il n'y a pas encore de livres associé à ce genre littéraire.</p>
+  {% endif %}
+</div>
+  </main>
+{% endblock %}

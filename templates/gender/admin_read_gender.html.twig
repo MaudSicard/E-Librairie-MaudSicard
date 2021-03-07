@@ -1,0 +1,24 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('admin_create_gender') }}"> Ajouter un genre </a>
+
+<table>
+      <tr>
+          <th>Genre</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+      </tr>
+      {% for gender in genders %}
+      <tr>
+        <td>{{ gender.name }}</td>
+        <td><a href="{{ path('admin_update_gender', {id: gender.id}) }}">Modifier</a></td>
+        <td><a href="{{ path('admin_delete_gender', {id: gender.id}) }}">Supprimer</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+ 
+ {% endblock %}
