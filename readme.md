@@ -17,8 +17,8 @@ Je suis en formation TP développeur Web et je termine cette formation par un mo
 ## Améliorations possibles et difficultés rencontrées
 
 - L'UX est largement améliorable et devrait être plus en accord avec la réglementation OPQUAST
-- Utiliser plus de services et les évênements
-- Messages d'erreurs personnalisés
+- Utiliser plus de services et les évênements (pour personnaliser l'affichage en focntion de l'utilisateur, lui donner des messages personnalisées, adapter le panier, ... par exemple)
+- Faire des tests
 - J'ai pris le temps de réfléchir sur la BDD et les requêtes custom de manière à essayer diminuer le nombre de requêtes, d'où la table intermédiaire Group
 - Utiliser plus de fonctionnalités Twig
-- Je n'ai pas finaliser le panier puisque le site est fictif mais c'est également à faire
+- Je n'ai pas finaliser le panier puisque le site est fictif mais c'est également à faire, ...
