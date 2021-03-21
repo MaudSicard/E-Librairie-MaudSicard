@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class GroupController extends AbstractController
 {
     /**
-     * @Route("/admin/create/group", name="admin_create_group")
+     * @Route("/admin/create/group", name="admin_create_group",  methods={"GET", "POST"})
      */
     public function createGroup(Request $request, MessageGenerator $messageGenerator)
     {

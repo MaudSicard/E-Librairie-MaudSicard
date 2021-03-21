@@ -29,7 +29,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/author", name="admin_read_author")
+     * @Route("/admin/author", name="admin_read_author",  methods={"GET"})
      */
     public function readAuthorAdmin(AuthorRepository $authorRepository): Response
     {
@@ -58,7 +58,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/create/author", name="admin_create_author")
+     * @Route("/admin/create/author", name="admin_create_author",   methods={"GET", "POST"})
      */
     public function createAuthor(Request $request, MessageGenerator $messageGenerator)
     {
@@ -85,7 +85,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/update/author/{id<\d+>}", name="admin_update_author", methods={"GET", "POST"})
+     * @Route("/admin/update/author/{id<\d+>}", name="admin_update_author", methods={"GET", "PATCH"})
      */
     public function updateAuthor(Author $author, Request $request, MessageGenerator $messageGenerator)
     {
@@ -117,7 +117,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/delete/author/{id<\d+>}", name="admin_delete_author", methods={"GET", "POST"})
+     * @Route("/admin/delete/author/{id<\d+>}", name="admin_delete_author", methods={"GET", "DELETE"})
      */
     public function deleteAuthor(Author $author = null, EntityManagerInterface $entityManager, Request $request, MessageGenerator $messageGenerator)
     {

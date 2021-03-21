@@ -29,7 +29,7 @@ class EditorController extends AbstractController
     }
 
      /**
-     * @Route("/admin/editor", name="admin_read_editor")
+     * @Route("/admin/editor", name="admin_read_editor",  methods={"GET"})
      */
     public function readEditorAdmin(EditorRepository $editorRepository): Response
     {
@@ -58,7 +58,7 @@ class EditorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/create/editor", name="admin_create_editor")
+     * @Route("/admin/create/editor", name="admin_create_editor",  methods={"GET", "POST"})
      */
     public function createAuthor(Request $request, MessageGenerator $messageGenerator)
     {
@@ -85,7 +85,7 @@ class EditorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/update/editor/{id<\d+>}", name="admin_update_editor", methods={"GET", "POST"})
+     * @Route("/admin/update/editor/{id<\d+>}", name="admin_update_editor", methods={"GET", "PATCH"})
      */
     public function updateEditor(Editor $editor, Request $request, MessageGenerator $messageGenerator)
     {
@@ -117,7 +117,7 @@ class EditorController extends AbstractController
     }
 
     /**
-     * @Route("/admin/delete/editor/{id<\d+>}", name="admin_delete_editor", methods={"GET", "POST"})
+     * @Route("/admin/delete/editor/{id<\d+>}", name="admin_delete_editor", methods={"GET", "DELETE"})
      */
     public function deleteEditor(Editor $editor = null, EntityManagerInterface $entityManager, Request $request, MessageGenerator $messageGenerator)
     {

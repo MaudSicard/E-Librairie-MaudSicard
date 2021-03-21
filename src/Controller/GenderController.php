@@ -28,7 +28,7 @@ class GenderController extends AbstractController
     }
 
       /**
-     * @Route("/admin/gender", name="admin_read_gender")
+     * @Route("/admin/gender", name="admin_read_gender",  methods={"GET"})
      */
     public function readGenderAdmin(GendreRepository $gendreRepository): Response
     {
@@ -58,7 +58,7 @@ class GenderController extends AbstractController
     }
 
     /**
-     * @Route("/admin/create/gender", name="admin_create_gender")
+     * @Route("/admin/create/gender", name="admin_create_gender",  methods={"GET", "POST"})
      */
     public function createGender(Request $request, MessageGenerator $messageGenerator)
     {
@@ -85,7 +85,7 @@ class GenderController extends AbstractController
     }
 
     /**
-     * @Route("/admin/update/gender/{id<\d+>}", name="admin_update_gender", methods={"GET", "POST"})
+     * @Route("/admin/update/gender/{id<\d+>}", name="admin_update_gender", methods={"GET", "PATCH"})
      */
     public function updateGender(Gendre $gender, Request $request, MessageGenerator $messageGenerator)
     {
@@ -117,7 +117,7 @@ class GenderController extends AbstractController
     }
 
     /**
-     * @Route("/admin/delete/gender/{id<\d+>}", name="admin_delete_gender", methods={"GET", "POST"})
+     * @Route("/admin/delete/gender/{id<\d+>}", name="admin_delete_gender", methods={"GET", "DELETE"})
      */
     public function deleteGender(Gendre $gender = null, EntityManagerInterface $entityManager, Request $request, MessageGenerator $messageGenerator)
     {

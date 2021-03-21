@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CartController extends AbstractController
 {/**
-     * @Route("/cart_add/{id<\d+>}", name="cart_add")
+     * @Route("/cart_add/{id<\d+>}", name="cart_add",  methods={"GET"})
      */
     public function cartAdd($id, Request $request, SessionInterface $session, BookRepository $bookRepository)
     {
@@ -31,7 +31,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/cart/list", name="cart")
+     * @Route("/cart/list", name="cart",  methods={"GET"})
      */
 
      public function cartList(SessionInterface $session, BookRepository $bookRepository)

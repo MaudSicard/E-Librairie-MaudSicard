@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
       /**
-     * @Route("/admin/user", name="admin_read_user")
+     * @Route("/admin/user", name="admin_read_user",  methods={"GET"})
      */
     public function readUserAdmin(UserRepository $userRepository): Response
     {
@@ -29,7 +29,7 @@ class UserController extends AbstractController
 
 
      /**
-     * @Route("/admin/user/create", name="admin_create_user")
+     * @Route("/admin/user/create", name="admin_create_user",  methods={"GET", "POST"})
      */
     public function createUser(Request $request, UserPasswordEncoderInterface $passwordEncoder, MessageGenerator $messageGenerator)
     {
@@ -59,7 +59,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/user/update/{id<\d+>}", name="admin_update_user", methods={"GET", "POST"})
+     * @Route("/admin/user/update/{id<\d+>}", name="admin_update_user", methods={"GET", "PATCH"})
      */
     public function updateUser(User $user, Request $request, UserPasswordEncoderInterface $passwordEncoder, MessageGenerator $messageGenerator)
     {
@@ -94,7 +94,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/user/delete/{id<\d+>}", name="admin_delete_user", methods={"GET", "POST"})
+     * @Route("/admin/user/delete/{id<\d+>}", name="admin_delete_user", methods={"GET", "DELETE"})
      */
     public function deleteUser(User $user = null, EntityManagerInterface $entityManager, Request $request, MessageGenerator $messageGenerator)
     {

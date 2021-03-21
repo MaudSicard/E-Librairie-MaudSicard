@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class BookController extends AbstractController
 {
     /**
-     * @Route("search/book", name = "show_book_search")
+     * @Route("search/book", name = "show_book_search",  methods={"GET"})
      */
      public function searchBook(Request $request, GroupRepository $groupRepository)
     {
@@ -34,7 +34,7 @@ class BookController extends AbstractController
 
 
     /**
-     * @Route("/admin", name="admin_read_book")
+     * @Route("/admin", name="admin_read_book",  methods={"GET"})
      */
     public function readBook(GroupRepository $groupRepository): Response
     {
@@ -46,7 +46,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/admin/create/book", name="admin_create_book")
+     * @Route("/admin/create/book", name="admin_create_book",  methods={"GET", "POST"})
      */
     public function createBook(Request $request, MessageGenerator $messageGenerator)
     {
@@ -73,7 +73,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/admin/update/book/{id<\d+>}", name="admin_update_book", methods={"GET", "POST"})
+     * @Route("/admin/update/book/{id<\d+>}", name="admin_update_book", methods={"GET", "PATCH"})
      */
     public function updateBook(Book $book, Request $request, MessageGenerator $messageGenerator)
     {
@@ -105,7 +105,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/admin/delete/book/{id<\d+>}", name="admin_delete_book", methods={"GET", "POST"})
+     * @Route("/admin/delete/book/{id<\d+>}", name="admin_delete_book", methods={"GET", "DELETE"})
      */
     public function deleteBook(Book $book = null, EntityManagerInterface $entityManager, Request $request, MessageGenerator $messageGenerator)
     {

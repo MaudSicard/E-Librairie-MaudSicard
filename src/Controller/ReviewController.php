@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ReviewController extends AbstractController
 {
       /**
-     * @Route("/admin/review", name="admin_read_review")
+     * @Route("/admin/review", name="admin_read_review",  methods={"GET"})
      */
     public function readReviewAdmin(ReviewRepository $reviewRepository): Response
     {
@@ -41,7 +41,7 @@ class ReviewController extends AbstractController
     }
 
     /**
-     * @Route("/admin/create/review", name="admin_create_review")
+     * @Route("/admin/create/review", name="admin_create_review",  methods={"GET", "POST"})
      */
     public function createReview(Request $request, MessageGenerator $messageGenerator)
     {
@@ -68,7 +68,7 @@ class ReviewController extends AbstractController
     }
 
     /**
-     * @Route("/admin/update/review/{id<\d+>}", name="admin_update_review", methods={"GET", "POST"})
+     * @Route("/admin/update/review/{id<\d+>}", name="admin_update_review", methods={"GET", "PATCH"})
      */
     public function updateReview(Review $review, Request $request, MessageGenerator $messageGenerator)
     {
@@ -100,7 +100,7 @@ class ReviewController extends AbstractController
     }
 
     /**
-     * @Route("/admin/delete/review/{id<\d+>}", name="admin_delete_review", methods={"GET", "POST"})
+     * @Route("/admin/delete/review/{id<\d+>}", name="admin_delete_review", methods={"GET", "DELETE"})
      */
     public function deleteReview(Review $review = null, EntityManagerInterface $entityManager, Request $request, MessageGenerator $messageGenerator)
     {
